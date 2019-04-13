@@ -14,12 +14,13 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        FragmentTab fragmentTab = new FragmentTab();
-        position = position + 1;
-        Bundle bundle = new Bundle();
-        bundle.putString("message", "Fragment :"+position);
-        fragmentTab.setArguments(bundle);
-        return fragmentTab;
+        switch (position) {
+            case 0:
+                return new LoginFragment();
+            case 1:
+                return new RegisterFragment();
+        }
+        return null;
     }
 
     @Override
@@ -30,7 +31,10 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
-        position = position+1;
-        return "Fragment "+position;
+        if (position == 0){
+            return "Login";
+        }else{
+            return "Register";
+        }
     }
 }
