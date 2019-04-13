@@ -1,4 +1,4 @@
-package info.androidhive.tabsswipe;
+package com.example.codehsu.Login_Register;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,13 +8,13 @@ import android.view.ViewGroup;
 
 import com.example.codehsu.R;
 
-public class SignIn extends Fragment {
+public class SignUp extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.sign_in, container, false);
+        View rootView = inflater.inflate(R.layout.sign_up, container, false);
 
         return rootView;
     }

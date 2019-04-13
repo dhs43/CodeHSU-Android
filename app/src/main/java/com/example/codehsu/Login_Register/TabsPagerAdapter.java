@@ -1,7 +1,8 @@
-package info.androidhive.tabsswipe.adapter;
+package com.example.codehsu.Login_Register;
 
-import info.androidhive.tabsswipe.SignUp;
-import info.androidhive.tabsswipe.SignIn;
+import com.example.codehsu.Login_Register.SignIn;
+import com.example.codehsu.Login_Register.SignUp;
+
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -18,10 +19,10 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
         switch (index) {
             case 0:
                 // sign in
-                return new info.androidhive.tabsswipe.SignIn();
+                return new SignIn();
             case 1:
                 //sign up
-                return new info.androidhive.tabsswipe.SignUp();
+                return new SignUp();
         }
 
         return null;

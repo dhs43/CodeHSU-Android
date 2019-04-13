@@ -1,14 +1,13 @@
-package com.example.codehsu;
+package com.example.codehsu.Login_Register;
 
-import info.androidhive.tabsswipe.adapter.TabsPagerAdapter;
-import info.androidhive.tabsswipe.R;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
-import android.view.Menu;
+
+import com.example.codehsu.R;
 
 public class Login_or_Register_Activity extends FragmentActivity implements
         ActionBar.TabListener {
