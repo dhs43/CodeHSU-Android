@@ -67,7 +67,7 @@ public class LoginActivity extends AppCompatActivity {
                                 FirebaseUser user = mAuth.getCurrentUser();
                                 if (user != null) {
                                     // Go to home screen
-                                    Intent myIntent = new Intent(LoginActivity.this, AddPostActivity.class);
+                                    Intent myIntent = new Intent(LoginActivity.this, HomeActivity.class);
                                     LoginActivity.this.startActivity(myIntent);
                                     finish();
                                 }

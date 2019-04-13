@@ -92,4 +92,11 @@
         android:textColor="@color/colorAccent"
         android:background="@color/colorPrimary"/>
 
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottom_navigation_add_post"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/menu_bottom_navigation" />
+
 </android.support.constraint.ConstraintLayout>

@@ -1,5 +1,6 @@
 package com.example.codehsu;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -39,7 +40,9 @@ public class MainActivity extends AppCompatActivity {
         FirebaseUser user = mAuth.getCurrentUser();
 
         if (user != null) {
-            // Continue to home screen
+            Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+            startActivity(intent);
+            finish();
         } else {
             // No user is signed in.
             Button btnGoRegister = findViewById(R.id.btnGoRegister);
