@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.codehsu.AddPostActivity;
 import com.example.codehsu.HomeActivity;
 import com.example.codehsu.MainActivity;
 import com.example.codehsu.R;
@@ -66,7 +67,7 @@ public class LoginActivity extends AppCompatActivity {
                                 FirebaseUser user = mAuth.getCurrentUser();
                                 if (user != null) {
                                     // Go to home screen
-                                    Intent myIntent = new Intent(LoginActivity.this, HomeActivity.class);
+                                    Intent myIntent = new Intent(LoginActivity.this, AddPostActivity.class);
                                     LoginActivity.this.startActivity(myIntent);
                                     finish();
                                 }
