@@ -11,11 +11,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.codehsu.Collections.Post;
 import com.example.codehsu.Collections.User;
 import com.example.codehsu.LoginRegister.LoginActivity;
 import com.example.codehsu.LoginRegister.RegisterActivity;
 import com.example.codehsu.Posts.AddPostActivity;
 import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.ArrayList;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -39,6 +42,20 @@ public class ProfileActivity extends AppCompatActivity {
         tvEmail = (TextView)findViewById(R.id.tvEmail);
         tvPhone = (TextView)findViewById(R.id.tvPhone);
         tvBio = (TextView)findViewById(R.id.tvBio);
+
+
+        User thisUser = new User();
+        mAuth = FirebaseAuth.getInstance();
+        thisUser.getUser(mAuth.getUid(), new User.UserCallback() {
+            @Override
+            public void onCallback(User thisUser) {
+                tvName.setText(thisUser.name);
+                tvAddress.setText(thisUser.address);
+                tvEmail.setText(thisUser.email);
+                tvPhone.setText(thisUser.phone);
+                tvBio.setText(thisUser.bio);
+            }
+        });
 
         tvName.setText(thisUser.name);
         tvAddress.setText(thisUser.address);
