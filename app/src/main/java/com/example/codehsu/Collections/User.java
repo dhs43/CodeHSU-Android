@@ -49,6 +49,7 @@ public class User {
                         thisUser.email = data.get("email").toString();
                         thisUser.name = data.get("name").toString();
                         thisUser.phone = data.get("phone").toString();
+                        thisUser.is_business = (boolean)data.get("business");
 
                         myCallback.onCallback(thisUser);
 

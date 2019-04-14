@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.codehsu.Collections.Post;
+import com.example.codehsu.Collections.User;
 import com.example.codehsu.HomeActivity;
 import com.example.codehsu.MainActivity;
 import com.example.codehsu.ProfileActivity;
@@ -33,6 +34,22 @@ public class AddPostActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_post);
+
+        User thisUser = new User();
+        FirebaseAuth mAuth;
+        mAuth = FirebaseAuth.getInstance();
+        thisUser.getUser(mAuth.getUid(), new User.UserCallback() {
+            @Override
+            public void onCallback(User thisUser) {
+                if (! thisUser.is_business) {
+                    Toast.makeText(AddPostActivity.this, "Only businesses can create posts",
+                            Toast.LENGTH_LONG).show();
+                    Intent myIntent = new Intent(AddPostActivity.this, HomeActivity.class);
+                    AddPostActivity.this.startActivity(myIntent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION));
+                    finish();
+                }
+            }
+        });
 
         Button btnSubmit = findViewById(R.id.btnSubmit);
         Post postInstance = new Post();

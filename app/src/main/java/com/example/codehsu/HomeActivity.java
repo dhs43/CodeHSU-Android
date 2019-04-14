@@ -12,13 +12,16 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.codehsu.Collections.Post;
+import com.example.codehsu.Collections.User;
 import com.example.codehsu.LoginRegister.RegisterActivity;
 import com.example.codehsu.Posts.AddPostActivity;
 import com.example.codehsu.Posts.DetailedPostActivity;
 import com.example.codehsu.Posts.PostAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
