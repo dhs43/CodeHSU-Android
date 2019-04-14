@@ -122,19 +122,33 @@ public class Post {
 
                                 Map<String, Object> data = document.getData();
                                 Post thisPost = new Post();
-                                thisPost.difficulty = data.get("difficulty").toString();
-                                thisPost.auth_id = data.get("auth_id").toString();
-                                thisPost.description = data.get("description").toString();
-                                thisPost.compensation = data.get("compensation").toString();
-                                thisPost.pitch = data.get("pitch").toString();
-                                thisPost.title = data.get("title").toString();
-                                String unparsedTags = data.get("tags").toString();
-                                unparsedTags = unparsedTags.substring(1, unparsedTags.length()-1);
-                                thisPost.tags = Arrays.asList(unparsedTags.split(", "));
+                                if(data.get("difficulty").toString() != null) {
+                                    thisPost.difficulty = data.get("difficulty").toString();
+                                }
+                                if(data.get("auth_id").toString() != null) {
+                                    thisPost.auth_id = data.get("auth_id").toString();
+                                }
+                                if(data.get("description").toString() != null) {
+                                    thisPost.description = data.get("description").toString();
+                                }
+                                if(data.get("compensation").toString() != null) {
+                                    thisPost.compensation = data.get("compensation").toString();
+                                }
+                                if(data.get("pitch").toString() != null) {
+                                    thisPost.pitch = data.get("pitch").toString();
+                                }
+                                if(data.get("pitch").toString() != null) {
+                                    thisPost.title = data.get("title").toString();
+                                }
+                                if(data.get("unparsedTags") != null) {
+                                    String unparsedTags = data.get("tags").toString();
+                                    unparsedTags = unparsedTags.substring(1, unparsedTags.length()-1);
+                                    thisPost.tags = Arrays.asList(unparsedTags.split(", "));
+                                }
 
                                 allPosts.add(thisPost);
-                                myCallback.onCallback(allPosts);
                             }
+                            myCallback.onCallback(allPosts);
                         } else {
                             Log.d(TAG, "Error getting documents: ", task.getException());
                         }

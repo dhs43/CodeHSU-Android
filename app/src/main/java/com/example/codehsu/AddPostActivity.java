@@ -42,6 +42,7 @@ public class AddPostActivity extends AppCompatActivity {
             @Override
             public void onCallback(ArrayList<Post> allPosts) {
                 // Do stuff with allPosts here
+                Log.d("testdata", allPosts.toString());
             }
         });
 
