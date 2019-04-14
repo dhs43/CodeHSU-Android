@@ -1,12 +1,19 @@
 package com.example.codehsu.Posts;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.codehsu.Collections.Post;
+import com.example.codehsu.HomeActivity;
+import com.example.codehsu.MainActivity;
+import com.example.codehsu.ProfileActivity;
 import com.example.codehsu.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class DetailedPostActivity extends AppCompatActivity {
 
@@ -30,23 +37,33 @@ public class DetailedPostActivity extends AppCompatActivity {
         tvDifficulty = findViewById(R.id.tvDifficulty);
         tvCompensation = findViewById(R.id.tvCompensation);
 
+        Button btnBack = findViewById(R.id.btnBack);
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(DetailedPostActivity.this, HomeActivity.class);
+                DetailedPostActivity.this.startActivity(myIntent);
+            }
+        });
+
         if (getIntent().getExtras().getString("title") != "null") {
             tvTitle.setText(getIntent().getExtras().getString("title"));
         }
         if (getIntent().getExtras().getString("pitch") != "null") {
-            tvPitch.setText(getIntent().getExtras().getString("pitch"));
+            tvPitch.setText("Pitch: " + getIntent().getExtras().getString("pitch"));
         }
         if ((getIntent().getExtras().getString("description") != "null")) {
-            tvDescription.setText(getIntent().getExtras().getString("description"));
+            tvDescription.setText("Desc: " + getIntent().getExtras().getString("description"));
         }
         if (getIntent().getExtras().getString("keywords") != "null") {
-            tvKeywords.setText(getIntent().getExtras().getString("keywords"));
+            tvKeywords.setText("Keywords: " + getIntent().getExtras().getString("keywords"));
         }
         if (getIntent().getExtras().getString("difficulty") != "null") {
-            tvDifficulty.setText(getIntent().getExtras().getString("difficulty"));
+            tvDifficulty.setText("Difficulty: " +getIntent().getExtras().getString("difficulty"));
         }
         if (getIntent().getExtras().getString("compensation") != "null") {
-            tvCompensation.setText(getIntent().getExtras().getString("compensation"));
+            tvCompensation.setText("Compensation: " + getIntent().getExtras().getString("compensation"));
         }
     }
 }

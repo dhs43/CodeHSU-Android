@@ -48,11 +48,11 @@ public class ProfileActivity extends AppCompatActivity {
         thisUser.getUser(mAuth.getUid(), new User.UserCallback() {
             @Override
             public void onCallback(User thisUser) {
-                tvName.setText(thisUser.name);
-                tvAddress.setText(thisUser.address);
-                tvEmail.setText(thisUser.email);
-                tvPhone.setText(thisUser.phone);
-                tvBio.setText(thisUser.bio);
+                tvName.setText("Name: " + thisUser.name);
+                tvAddress.setText("Address: " + thisUser.address);
+                tvEmail.setText("Email: " + thisUser.email);
+                tvPhone.setText("Phone: " + thisUser.phone);
+                tvBio.setText("Desc: " + thisUser.bio);
             }
         });
 
