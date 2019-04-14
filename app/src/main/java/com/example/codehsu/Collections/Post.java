@@ -29,6 +29,7 @@ public class Post {
     public String auth_id;
     public String title;
     public String pitch;
+    public Long timestamp;
     public String description;
     public String picture_link;
     public String difficulty;
@@ -65,10 +66,6 @@ public class Post {
                         Log.e("createPost", "createPost failed: " + e.getMessage());
                     }
                 });
-    }
-
-    public void updatePost(String post_id) {
-
     }
 
     public void getPost(String post_id, final MyCallback myCallback) {

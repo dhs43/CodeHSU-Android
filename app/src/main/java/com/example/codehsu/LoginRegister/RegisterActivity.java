@@ -11,8 +11,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
-import com.example.codehsu.AddPostActivity;
-import com.example.codehsu.HomeActivity;
+import com.example.codehsu.Posts.AddPostActivity;
 import com.example.codehsu.MainActivity;
 import com.example.codehsu.R;
 import com.google.android.gms.tasks.OnCompleteListener;

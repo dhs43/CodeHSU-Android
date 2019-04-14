@@ -1,6 +1,7 @@
 package com.example.codehsu;
 
 import android.content.Intent;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
@@ -9,12 +10,21 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import com.example.codehsu.Collections.Post;
+import com.example.codehsu.LoginRegister.RegisterActivity;
+import com.example.codehsu.Posts.AddPostActivity;
+import com.example.codehsu.Posts.DetailedPostActivity;
+import com.example.codehsu.Posts.PostAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
+
+import java.io.Serializable;
 
 public class HomeActivity extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -58,6 +68,25 @@ public class HomeActivity extends AppCompatActivity {
                     default:
                         return true;
                 }
+            }
+        });
+
+        adapter.setOnItemClickListener(new PostAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(DocumentSnapshot documentSnapshot, int position) {
+                Post thisPost = documentSnapshot.toObject(Post.class);
+
+                Intent myIntent = new Intent(HomeActivity.this, DetailedPostActivity.class);
+                myIntent.putExtra("title", thisPost.title);
+                myIntent.putExtra("pitch", thisPost.pitch);
+                myIntent.putExtra("description", thisPost.description);
+                if (thisPost.tags != null) {
+                    String tags = thisPost.tags.toString().substring(1, thisPost.tags.toString().length()-1);
+                    myIntent.putExtra("keywords", tags);
+                }
+                myIntent.putExtra("difficulty", thisPost.difficulty);
+                myIntent.putExtra("compensation", thisPost.compensation);
+                HomeActivity.this.startActivity(myIntent);
             }
         });
     }

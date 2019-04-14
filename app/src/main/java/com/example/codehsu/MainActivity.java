@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
 
         // Firebase Auth
         mAuth = FirebaseAuth.getInstance();
-        mAuth.signOut();
         FirebaseUser user = mAuth.getCurrentUser();
 
         if (user != null) {

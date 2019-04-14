@@ -1,4 +1,4 @@
-package com.example.codehsu;
+package com.example.codehsu.Posts;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -12,6 +12,9 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.codehsu.Collections.Post;
+import com.example.codehsu.HomeActivity;
+import com.example.codehsu.ProfileActivity;
+import com.example.codehsu.R;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
@@ -30,13 +33,6 @@ public class AddPostActivity extends AppCompatActivity {
 
         Button btnSubmit = findViewById(R.id.btnSubmit);
         Post postInstance = new Post();
-
-        postInstance.getPost("4R6qoWHklukShNfgvvwD", new Post.MyCallback() {
-            @Override
-            public void onCallback(Post thisPost) {
-                Log.d(TAG, thisPost.toString());
-            }
-        });
 
         postInstance.getAllPosts(new Post.AllPostsCallback() {
             @Override
