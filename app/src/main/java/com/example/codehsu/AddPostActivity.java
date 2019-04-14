@@ -38,6 +38,13 @@ public class AddPostActivity extends AppCompatActivity {
             }
         });
 
+        postInstance.getAllPosts(new Post.AllPostsCallback() {
+            @Override
+            public void onCallback(ArrayList<Post> allPosts) {
+                // Do stuff with allPosts here
+            }
+        });
+
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

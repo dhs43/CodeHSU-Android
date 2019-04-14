@@ -9,10 +9,14 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
+import java.sql.Ref;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -102,5 +106,43 @@ public class Post {
     }
     public interface MyCallback {
         void onCallback(Post thisPost);
+    }
+
+
+    public void getAllPosts(final AllPostsCallback myCallback) {
+        db.collection("posts")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            ArrayList<Post> allPosts = new ArrayList<>();
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Log.d(TAG, document.getId() + " => " + document.getData());
+
+                                Map<String, Object> data = document.getData();
+                                Post thisPost = new Post();
+                                thisPost.difficulty = data.get("difficulty").toString();
+                                thisPost.auth_id = data.get("auth_id").toString();
+                                thisPost.description = data.get("description").toString();
+                                thisPost.compensation = data.get("compensation").toString();
+                                thisPost.pitch = data.get("pitch").toString();
+                                thisPost.title = data.get("title").toString();
+                                String unparsedTags = data.get("tags").toString();
+                                unparsedTags = unparsedTags.substring(1, unparsedTags.length()-1);
+                                thisPost.tags = Arrays.asList(unparsedTags.split(", "));
+
+                                allPosts.add(thisPost);
+                                myCallback.onCallback(allPosts);
+                            }
+                        } else {
+                            Log.d(TAG, "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
+    }
+
+    public interface AllPostsCallback {
+        void onCallback(ArrayList<Post> allPosts);
     }
 }
