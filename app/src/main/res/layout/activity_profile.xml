@@ -6,16 +6,39 @@
     android:layout_height="match_parent"
     tools:context=".ProfileActivity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="CodeHSU"
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="#2e7d32"/>
+
     <android.support.constraint.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_height="match_parent"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="200dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
+        android:layout_marginTop="75dp"
+        android:layout_marginBottom="85dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
+        android:background="@drawable/layout_border"
         tools:context=".ProfileActivity">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Profile"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginTop="15dp"
+            android:textAlignment="center"
+            android:textSize="24sp"/>
 
         <TextView
             android:id="@+id/tvName"
@@ -71,8 +94,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:text="@string/sign_out"
         android:textColor="#FFFFFF"
-        android:background="#005005"
-        android:layout_marginBottom="100dp"
+        android:background="#2e7d32"
+        android:layout_marginBottom="75dp"
         android:layout_marginStart="100dp"
         android:layout_marginEnd="100dp"/>
 
@@ -81,5 +104,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/menu_bottom_navigation" />
+        app:menu="@menu/menu_bottom_navigation"
+        android:background="#005005"
+        app:itemIconTint="#ffffff"/>
 </android.support.constraint.ConstraintLayout>

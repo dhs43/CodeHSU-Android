@@ -10,9 +10,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.codehsu.Collections.Post;
 import com.example.codehsu.HomeActivity;
+import com.example.codehsu.MainActivity;
 import com.example.codehsu.ProfileActivity;
 import com.example.codehsu.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -68,6 +70,11 @@ public class AddPostActivity extends AppCompatActivity {
                 String testLink = "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png";
 
                 newPost.createPost(auth_id, title, pitch, description, testLink, difficulty, tags, compensation);
+
+                Toast.makeText(getApplicationContext(),"Submitted!",Toast.LENGTH_SHORT).show();
+
+                Intent myIntent = new Intent(AddPostActivity.this, AddPostActivity.class);
+                AddPostActivity.this.startActivity(myIntent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION));
             }
         });
 

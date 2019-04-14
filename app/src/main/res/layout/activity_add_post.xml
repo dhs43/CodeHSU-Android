@@ -8,6 +8,17 @@
     tools:context=".Posts.AddPostActivity">
 
     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="CodeHSU"
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="#2e7d32"/>
+
+    <TextView
         android:id="@+id/tvAddPost"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -110,6 +121,9 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/menu_bottom_navigation" />
+        app:menu="@menu/menu_bottom_navigation"
+        android:background="#005005"
+        app:itemIconTint="#ffffff"
+        />
 
 </android.support.constraint.ConstraintLayout>
