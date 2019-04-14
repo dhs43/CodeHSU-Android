@@ -1,6 +1,7 @@
 package com.example.codehsu.Posts;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
@@ -56,6 +57,15 @@ public class AddPostActivity extends AppCompatActivity {
                 EditText etDifficulty = findViewById(R.id.etDifficulty);
                 EditText etCompensation = findViewById(R.id.etCompensation);
                 EditText etTags = findViewById(R.id.etTags);
+
+                if (etTitle.getText().toString().equals("")) {
+                    etTitle.setHintTextColor(Color.RED);
+                    return;
+                }
+                if (etPitch.getText().toString().equals("")) {
+                    etPitch.setHintTextColor(Color.RED);
+                    return;
+                }
 
                 String title = etTitle.getText().toString();
                 String pitch = etPitch.getText().toString();

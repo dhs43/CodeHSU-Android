@@ -21,8 +21,9 @@
     <string name="full_description">Full Description</string>
     <string name="difficulty">Difficulty</string>
     <string name="compensation">Compensation</string>
-    <string name="create_a_new_post">Create a New Post!</string>
+    <string name="create_a_new_post">Create a new post!</string>
     <string name="submit">Submit</string>
     <string name="tags_comma_separated">Tags (comma separated)</string>
     <string name="sign_out">Sign Out</string>
+    <string name="codehsu">CodeHSU</string>
 </resources>

@@ -13,8 +13,10 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firestore.v1.StructuredQuery;
 
 import java.sql.Ref;
 import java.util.ArrayList;
@@ -46,6 +48,7 @@ public class Post {
         newPost.auth_id = auth_id;
         newPost.title = title;
         newPost.pitch = pitch;
+        newPost.timestamp = System.currentTimeMillis();
         newPost.description = description;
         newPost.picture_link = picture_link;
         newPost.difficulty = difficulty;

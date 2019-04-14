@@ -30,12 +30,23 @@ public class DetailedPostActivity extends AppCompatActivity {
         tvDifficulty = findViewById(R.id.tvDifficulty);
         tvCompensation = findViewById(R.id.tvCompensation);
 
-
-        tvTitle.setText(getIntent().getExtras().getString("title"));
-        tvPitch.setText(getIntent().getExtras().getString("pitch"));
-        tvDescription.setText(getIntent().getExtras().getString("description"));
-        tvKeywords.setText(getIntent().getExtras().getString("keywords"));
-        tvDifficulty.setText(getIntent().getExtras().getString("difficulty"));
-        tvCompensation.setText(getIntent().getExtras().getString("compensation"));
+        if (getIntent().getExtras().getString("title") != "null") {
+            tvTitle.setText(getIntent().getExtras().getString("title"));
+        }
+        if (getIntent().getExtras().getString("pitch") != "null") {
+            tvPitch.setText(getIntent().getExtras().getString("pitch"));
+        }
+        if ((getIntent().getExtras().getString("description") != "null")) {
+            tvDescription.setText(getIntent().getExtras().getString("description"));
+        }
+        if (getIntent().getExtras().getString("keywords") != "null") {
+            tvKeywords.setText(getIntent().getExtras().getString("keywords"));
+        }
+        if (getIntent().getExtras().getString("difficulty") != "null") {
+            tvDifficulty.setText(getIntent().getExtras().getString("difficulty"));
+        }
+        if (getIntent().getExtras().getString("compensation") != "null") {
+            tvCompensation.setText(getIntent().getExtras().getString("compensation"));
+        }
     }
 }
