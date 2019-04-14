@@ -24,9 +24,8 @@ public class ProfileActivity extends AppCompatActivity {
 
     private BottomNavigationView bottomNavigationView;
     public FirebaseAuth mAuth;
-    public User thisUser = new User();
 
-    public TextView tvName;
+    TextView tvName;
     TextView tvAddress;
     TextView tvEmail;
     TextView tvPhone;
@@ -37,11 +36,11 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        tvName = (TextView)findViewById(R.id.tvName);
-        tvAddress = (TextView)findViewById(R.id.tvAddress);
-        tvEmail = (TextView)findViewById(R.id.tvEmail);
-        tvPhone = (TextView)findViewById(R.id.tvPhone);
-        tvBio = (TextView)findViewById(R.id.tvBio);
+        tvName = findViewById(R.id.tvName);
+        tvAddress = findViewById(R.id.tvAddress);
+        tvEmail = findViewById(R.id.tvEmail);
+        tvPhone = findViewById(R.id.tvPhone);
+        tvBio = findViewById(R.id.tvBio);
 
 
         User thisUser = new User();
