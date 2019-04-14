@@ -14,4 +14,6 @@ public class User {
     public boolean is_business;
     public ArrayList<Post> posts;
     public boolean verified;
+
+
 }
