@@ -18,6 +18,7 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
 
 
+
         bottomNavigationView = findViewById(R.id.bottom_navigation_profile);
         bottomNavigationView.getMenu().findItem(R.id.action_profile).setChecked(true);
 

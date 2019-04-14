@@ -23,4 +23,5 @@
     <string name="compensation">Compensation</string>
     <string name="create_a_new_post">Create a New Post!</string>
     <string name="submit">Submit</string>
+    <string name="sign_out">Sign Out</string>
 </resources>
