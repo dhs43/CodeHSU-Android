@@ -108,6 +108,8 @@
         android:layout_height="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/menu_bottom_navigation"
-        android:background="#005005"
-        app:itemIconTint="#ffffff"/>
+        android:background="#2e7d32"
+        app:itemIconTint="#ffffff"
+        app:itemTextColor="#ffffff"
+        />
 </android.support.constraint.ConstraintLayout>
